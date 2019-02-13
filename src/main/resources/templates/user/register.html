@@ -1,0 +1,88 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="/assets/vue/css/iview.css">
+    <link rel="stylesheet" href="/assets/vue/css/ionicons.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="container" id="register">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-10">
+            <div style=" border: 1px solid #E7E7E7; padding: 20px 20px ; border-radius: 5px; margin-top: 120px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img style="width: 430px;height: 350px" src="/pages/images/index.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <!--  <c:if test="${errorInfo!=null}">${errorInfo}</c:if>-->
+                        <h3>注册</h3>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="请输入手机号" v-model.trim="accountForm.phone">
+                                </div>
+                            </div>
+                            <div class="form-group" v-if="validateSeen">
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="请输入验证码" v-model.trim="validate">
+                                </div>
+                                <div class="col-sm-4">
+                                    <img style="width: 80px;height:30px;" onclick="changeImg(this)" src="/getImage" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-default " @click="enter">确定</button>
+                                </div>
+                            </div>
+                            <div class="form-group" v-if="phvalidateSeen">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="验证码" v-model.trim="phvalidate">
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-default" @click="getPhValidate">{{content}}</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="请输入密码" v-model.trim="accountForm.password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked="checked"> 我已阅读并同意<span style="color: #1b6d85">《用户注册协议》</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-default btn-lg btn-block" @click="registerSubmit">提交</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label style="margin-left: 300px">
+                                    <a href="/loginPage">返回登录页</a>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/assets/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/vue/js/vue.min.js"></script>
+<script type="text/javascript" src="/assets/vue/js/axios.min.js"></script>
+<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/pages/js/register.js"></script>
+</html>

@@ -5,12 +5,6 @@ import org.caps.microservice.common.domain.TbUser;
 import java.util.Map;
 
 public interface LoginService {
-    /**
-     * 注册
-     * @param user
-     * @return
-     */
-    int userRegister(TbUser user);
 
     /**
      * 登陆
@@ -18,7 +12,7 @@ public interface LoginService {
      * @param password
      * @return
      */
-    Map<String,Object> login(String phone, String password);
+    TbUser login(String phone, String password);
     /**
      * 用户数量
      * @param phone

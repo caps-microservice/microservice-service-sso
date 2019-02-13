@@ -7,9 +7,15 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import tk.mybatis.spring.annotation.MapperScan;
 @EnableEurekaClient
+/*Eureka客户端*/
+
 @SpringBootApplication
 @EnableDiscoveryClient
+/*注册到服务中心*/
+
 @EnableFeignClients
+/*开启 Feign 功能*/
+
 @MapperScan(basePackages = "org.caps.microservice.service.sso.mapper")
 public class ServiceSSOApplication {
     public static void main(String[] args) {
